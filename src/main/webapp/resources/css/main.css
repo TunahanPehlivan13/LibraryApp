@@ -6,7 +6,20 @@
 }
 
 #ajaxLoader img {
-  position: absolute;
-  right: 25px;
-  top: 25px;
+	position: absolute;
+	right: 25px;
+	top: 25px;
+}
+
+.captcha {
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: #777;
+}
+
+.captcha label {
+	padding: 8px;
+	background-color: #F9FCB6;
+	border: 1px solid #919900;
 }

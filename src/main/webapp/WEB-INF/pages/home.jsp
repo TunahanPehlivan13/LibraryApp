@@ -58,15 +58,24 @@
 			
 			<form role="form">
 				<div class="form-group">
-					<label for="email">Kitap ismi</label> 
+					<label for="name">Kitap ismi</label> 
 					<input class="form-control" id="name" vvalue="currentBook.name" ng-model="currentBook.name" />
 				</div>
 				<div class="form-group">
-					<label for="password">Yazar</label>
+					<label for="author">Yazar</label>
 					<input class="form-control" id="author" value="currentBook.author" ng-model="currentBook.author" />
 				</div>
+				<div class="form-group" ng-show="dialogMode == 'save'">
+					<div class="captcha">
+						<label>
+							{{captcha.generatedVal}}
+						</label>
+					</div>
+					<label for="generatedCaptcha">Captcha değerini giriniz</label>
+					<input class="form-control" id="captcha" value="captcha.val" ng-model="captcha.val" />
+				</div>
 				<button type="submit" class="btn btn-primary" ng-click="saveOrUpdateBook()">
-					{{dialogButtonStr}}
+					{{getDialogButtonStr()}}
 				</button>
 			</form>
 		</modal>
