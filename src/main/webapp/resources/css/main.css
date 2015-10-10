@@ -1,0 +1,12 @@
+.tableField {
+	width: 556px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 38px;
+}
+
+#ajaxLoader img {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
