@@ -11,6 +11,7 @@ var app = angular.module('app', ['service', 'sharedServices']);
 			$scope.currentBook = {};
 			$scope.showError = false;
 			$scope.errorMessages = [];
+			$scope.books = [];
 			$scope.captcha = {};
 
 			$timeout(function() {
