@@ -7,13 +7,23 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/data/mongo
 	http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
-	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
-	    <property name="host" value="localhost" />
+	<bean id="mongoTemplate" class="org.springframework.data.document.mongodb.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo" />
+		<constructor-arg name="databaseName" value="${mongodb.dbname}" />
+		<constructor-arg name="userCredentials" ref="mongoCredentials" />
 	</bean>
-	
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-	     <constructor-arg name="mongo" ref="mongo" />
-	     <constructor-arg name="databaseName" value="library" />
+
+	<bean id="mongoCredentials" class="org.springframework.data.authentication.UserCredentials">
+		<property name="username" value="#{mongoURI.username}" />
+		<property name="password" value="#{new java.lang.String(mongoURI.password)}" />
+	</bean>
+
+	<bean class="com.mongodb.MongoURI" id="mongoURI">
+		<constructor-arg value="${mongodb.url}" />
+	</bean>
+
+	<bean class="com.mongodb.Mongo" id="mongo">
+		<constructor-arg ref="mongoURI" />
 	</bean>
 	
 	<mongo:repositories base-package="com.library.repository" />
