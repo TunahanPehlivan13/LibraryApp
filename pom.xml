@@ -173,12 +173,29 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.2</version>
 				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+					<warName>${project.artifactId}</warName>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeArtifactIds>webapp-runner</includeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
