@@ -43,6 +43,7 @@ public class BeforeSaveValidator extends AbstractMongoEventListener
 		}
 		
 		if(nodes.size() > 0) {
+			logger.info("Validation error : {}", nodes.toString());
 			throw new ValidationException(nodes.toString());
 		}
 	}    

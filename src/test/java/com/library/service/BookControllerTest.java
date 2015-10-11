@@ -73,7 +73,7 @@ public class BookControllerTest {
 		Book book = generateRandomBook();
 		String bookAsJson = convertString(book);
 		mockMvc
-			.perform(get("/core/save")
+			.perform(post("/core/save")
 					.content(bookAsJson)
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
@@ -87,7 +87,7 @@ public class BookControllerTest {
 		book.setName("a");
 		String bookAsJson = convertString(book);
 		mockMvc
-			.perform(get("/core/save")
+			.perform(post("/core/save")
 					.content(bookAsJson)
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
@@ -102,7 +102,7 @@ public class BookControllerTest {
 			book.setAuthor("updated!");
 			String bookAsJson = convertString(book);
 			mockMvc
-				.perform(get("/core/update")
+				.perform(put("/core/update")
 						.content(bookAsJson)
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
@@ -116,7 +116,7 @@ public class BookControllerTest {
 		if(!bookList.isEmpty()) {
 			Book book = bookList.get(0);
 			mockMvc	
-				.perform(get("/core/remove/" + book.getId()))
+				.perform(delete("/core/remove/" + book.getId()))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.status").value(SUCCESS));
 		}
