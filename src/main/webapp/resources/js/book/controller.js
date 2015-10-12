@@ -20,10 +20,10 @@ var app = angular.module('app', ['service', 'sharedServices']);
 			
 			//public functions
 			$scope.openEditDialog = function(book) {
-				var b = {id: book.id, name: book.name, author: book.author}; // FIXME: burayı adam gibi yaz
+				var cloneBook = jQuery.extend({}, book);
 				$scope.dialogMode = "edit";
 				$scope.showError = false;
-				$scope.currentBook = b;
+				$scope.currentBook = cloneBook;
 				openDialog();
 			};
 			
@@ -87,7 +87,7 @@ var app = angular.module('app', ['service', 'sharedServices']);
 			}
 			
 			function handleException(data) {
-				// TODO : show data
+				alert(data.content[0]);
 			}
 			
 			function handleExceptionWithDialog(data) {
