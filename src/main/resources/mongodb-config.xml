@@ -9,11 +9,11 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongo" ref="mongo" />
-		<constructor-arg name="databaseName" value="n11book" />
+		<constructor-arg name="databaseName" value="${mongo.databaseName}" />
 	</bean>
 
 	<bean id="mongoUri" class="com.mongodb.MongoURI">
-		<constructor-arg value="mongodb://n11book:n11book@ds047478.mongolab.com:47478/n11book"/>
+		<constructor-arg value="${mongo.uri}"/>
 	</bean>
 
 	<bean class="com.mongodb.Mongo" id="mongo">

@@ -102,7 +102,7 @@ public class BookControllerTest {
 			book.setAuthor("updated!");
 			String bookAsJson = convertString(book);
 			mockMvc
-				.perform(put("/core/update")
+				.perform(post("/core/update")
 						.content(bookAsJson)
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
