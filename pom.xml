@@ -11,7 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
 		<jdk.version>1.6</jdk.version>
 		<mongo.java.driver.version>3.1.0</mongo.java.driver.version>
 		<spring-data-mongodb.version>1.8.0.RELEASE</spring-data-mongodb.version>
@@ -131,7 +131,7 @@
 		<dependency>
 		  <groupId>javax.servlet</groupId>
 		  <artifactId>servlet-api</artifactId>
-		  <version>3.0-alpha-1</version>
+		  <version>2.5</version>
 		  <scope>provided</scope>
 		</dependency>
 		
