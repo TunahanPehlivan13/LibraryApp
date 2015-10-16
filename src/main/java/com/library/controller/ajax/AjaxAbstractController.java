@@ -1,4 +1,4 @@
-package com.library.controller.ajax;
+﻿package com.library.controller.ajax;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +20,14 @@ public abstract class AjaxAbstractController {
 	 * 
 	 **/
 	@ExceptionHandler(LibraryException.class)
-	public @ResponseBody ObjectNode handleException(LibraryException exception) {
+	protected @ResponseBody ObjectNode handleException(LibraryException exception) {
 		logger.error(exception.getMessage());
 		ObjectNode message = JSONUtil.makeResponse(Status.FAIL, exception.getMessage(), null);
 		return message;
 	}
 	
 	@ExceptionHandler(Exception.class)
-	public @ResponseBody ObjectNode handleException(Exception exception) {
+	protected @ResponseBody ObjectNode handleException(Exception exception) {
 		logger.error(exception.getMessage());
 		ObjectNode message = JSONUtil.makeResponse(Status.FAIL, Constants.SUNUCU_HATASI, null);
 		return message;
