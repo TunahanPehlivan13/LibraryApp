@@ -19,7 +19,7 @@ var app = angular.module('service', []);
 			remove: function(bookId) {
 				var deferred = $q.defer();
 				$http
-					.delete('core/remove/' + bookId)
+					['delete']('core/remove/' + bookId)
 					.then(function successCallBack(response) {
 						prepareResponse(response, deferred);
 					});
