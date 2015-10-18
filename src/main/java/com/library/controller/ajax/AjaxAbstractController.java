@@ -1,4 +1,4 @@
-﻿package com.library.controller.ajax;
+package com.library.controller.ajax;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
